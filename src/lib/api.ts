@@ -2,7 +2,7 @@ import axios from "axios";
 import Cookies from "js-cookie";
 
 const API = axios.create({
-  baseURL: "http://localhost:8080/api/auth",
+  baseURL: `${process.env.NEXT_PUBLIC_BACKEND_URL}api/auth`,
 });
 
 API.interceptors.request.use((req) => {

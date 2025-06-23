@@ -2,7 +2,7 @@ import axios from "axios";
 import Cookies from "js-cookie";
 
 const PostAPI = axios.create({
-  baseURL: "http://localhost:8080/api/posts",
+  baseURL: `${process.env.NEXT_PUBLIC_BACKEND_URL}api/posts`,
   headers: {
     "Content-Type": "multipart/form-data",
   },

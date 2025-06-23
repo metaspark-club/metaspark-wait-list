@@ -50,7 +50,9 @@ const Chat = () => {
   useEffect(() => {
     const fetchUsers = async () => {
       try {
-        const res = await axios.get("http://localhost:8080/api/users");
+        const res = await axios.get(
+          `${process.env.NEXT_PUBLIC_BACKEND_URL}api/users`
+        );
         setUsers(res.data.filter((u: User) => u.email !== user?.email));
         console.log(res.data);
       } catch (error) {
@@ -68,7 +70,7 @@ const Chat = () => {
         otherUserId: otherUser.id.toString(),
       });
       const res = await axios.get(
-        `http://localhost:8080/api/messages?${params.toString()}`
+        `${process.env.NEXT_PUBLIC_BACKEND_URL}?${params.toString()}`
       );
       setMessages(res.data);
     } catch (error) {

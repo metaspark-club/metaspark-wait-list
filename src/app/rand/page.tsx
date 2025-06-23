@@ -4,7 +4,7 @@ import { useSelector } from "react-redux";
 import { RootState } from "@/store/store";
 import { io } from "socket.io-client";
 
-const socket = io("http://localhost:8080");
+const socket = io(`${process.env.NEXT_PUBLIC_BACKEND_URL}`);
 
 const ChatApp = () => {
   const user = useSelector((state: RootState) => state.auth.user);
